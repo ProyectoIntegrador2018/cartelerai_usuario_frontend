@@ -1,0 +1,26 @@
+.text {
+    padding-top: 2px;
+}
+
+.event-grid-title {
+    font-weight: 500;
+    font-size: 20px;
+    color: $black;
+}
+
+.event-grid-date {
+    font-weight: 400;
+    font-size: 18px;
+    color: $black;
+}
+
+.event-grid-time {
+    font-weight: 300;
+    font-size: 16px;
+    color: $black;
+}
+
+.event-grid-hashtags {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

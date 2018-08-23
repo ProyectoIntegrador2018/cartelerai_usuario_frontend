@@ -1,0 +1,167 @@
+@import '../common/button';
+@import '../common/colors';
+@import '../common/setup';
+@import 'show/photoModal';
+
+.page-container {
+    .show-event {
+      display: flex;
+      padding-top: 60px;
+      flex-flow: row;
+      @include mq($from: mobile, $until: tablet) {
+        flex-flow: column;
+      }
+      .photo-section-container {
+        margin: 0 5%;
+        overflow: scroll;
+        height: 100vh;
+        min-width: 400px;
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        top: 15px;
+        @include mq($from: mobile, $until: desktop) {
+          min-width: 40%;
+        }
+        @include mq($from: desktop) {
+          min-width: 400px;
+        }
+        .photo-section {
+          min-height: 100%;
+          position: sticky;
+          overflow: hidden;
+          top: 15px;
+          .register {
+            align-content: center;
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 150px;
+            margin: 5px 0;
+            justify-content: space-between;
+
+            .cost {
+              font-size: 20px;
+              font-weight: 500;
+            }
+            .social-media {
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+
+              .SocialMediaShareButton {
+                padding: 0px 10px;
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+            }
+            .reminder {
+              width: 100%;
+              text-align: right;
+              font-weight: 200;
+              padding: 20px 0;
+              display: flex;
+              flex-direction: column;
+
+              small{
+                font-weight: 500;
+                font-size: 16px; 
+                padding: 8px 0;
+                text-align: right;
+              }
+            }
+          }
+        }
+      }
+      .details-section {
+        min-width: 40%;
+        margin: 0 5%;
+        .title {
+          > div {
+            display: flex;
+            justify-content: space-between;
+          }
+          min-height: 150px;
+          h1 {
+            text-align: left;
+            margin: 0;
+            &.line-through {
+              text-decoration: line-through
+            }
+          }
+          .subtitle {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-evenly;
+            height: 50%;
+          }
+          margin-bottom: 20px;
+        }
+        .iconed-info {
+          font-weight: 200;
+          display: flex;
+          flex-flow: column;
+          .iconed-info-item {
+            display: flex;
+            flex-flow: row;
+            min-height: 50px;
+            padding: 5px 0;
+
+            .icon{
+              min-width: 45px;
+            }
+
+            .info{
+              word-break: break-word;
+              &.linked{
+                cursor: pointer;
+              }
+            }
+
+            svg {
+              margin-right: 20px;
+            }
+          }
+        }
+        .general-info {
+          font-weight: 200;
+          .info-item {
+            margin: 25px 0;
+            max-width: 100%;
+            .label {
+              font-weight: 600;
+              margin: 10px 0;
+            }
+            .children {
+              line-height: 30px;
+              img {
+                max-width: 100%;
+              }
+              .contact{
+                  .contact-name{
+                    word-break: break-word;
+                  }
+
+                  &.iconed-info{
+                  display: flex;
+                  justify-content: flex-start;
+                  flex-flow: wrap;
+                  @include mq($until: desktop) {
+                    flex-direction: column;
+                  }
+                }
+                .iconed-info-item {
+                  min-width: 50%;
+                  @include mq($until: desktop) {
+                    width: 100%;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
