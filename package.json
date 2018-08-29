@@ -2,9 +2,13 @@
   "name": "cartelera-public",
   "version": "1.0.0",
   "description": "Repositorio de la página pública de la Cartelera de Innovación y Emprendimiento",
-  "author": "Orion",
+  "author": "Orion/Orange",
   "license": "ISC",
   "main": "/src/public/bundle.js",
+  "engines": {
+    "npm": "6.4.0",
+    "node": "8.11.4" 
+  },
   "scripts": {
     "build": "webpack --config webpack.prod.js --env.build development",
     "start": "webpack-dev-server --config webpack.dev.js --env.build development",
