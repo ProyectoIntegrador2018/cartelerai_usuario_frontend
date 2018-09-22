@@ -1,0 +1,58 @@
+@import '../../common/colors';
+@import '../../common/setup';
+
+.searchContainer {
+  height: 45px;
+  width: 100%;
+}
+
+.searchAreaContainer {
+  height: 40px;
+  width: 85%;
+  border: 2px solid $light;
+  display: inline-block;
+}
+
+.searchButtonContainer {
+  height: 44px;
+  width: 12%;
+  display: inline-block;
+}
+
+.searchButton {
+  height: 40px;
+  width: 75%;
+  background-color: $light-blue;
+  margin-left: 10px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 0;
+}
+
+.searchTag {
+  height: 22px;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+.searchTagItem {
+  cursor: pointer;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.searchBox {
+  height: 35px;
+  width: 87%;
+  margin-right: 2%;
+  font-size: 15px;
+  padding-left: 10px;
+  border: 0px solid;
+  display: inline-block;
+}
+
+.searchBox:focus {
+  outline: none;
+}
