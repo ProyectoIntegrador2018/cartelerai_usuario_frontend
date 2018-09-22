@@ -1,32 +1,30 @@
 # Deployment de CarteleraI API
 
-Este documento fue creado con la finalidad de facilitar el proceso de deployment para el proyecto de CarteleraI API. A continuación se muestran los pasos a seguir para lograrlo.
+Este documento fue creado con la finalidad de facilitar el proceso de deployment para el proyecto de CarteleraI Public. A continuación se muestran los pasos a seguir para lograrlo.
 
 ### Requisitos
 
-* Ruby 2.2.0+
-* RubyGems
-* Bundler
-* Rails 5+
+* Node 8.11.4
+* Npm 6.4.0
 * Git
 * Cuenta en Heroku
 * Heroku CLI
 
-El API esta creado sobre Ruby/Rails, por lo que es necesario tener esas herramientas con las versiones ya presentadas anteriormente.
+El proyecto esta creado sobre NodeJS/React, por lo que es necesario tener esas herramientas con las versiones ya presentadas anteriormente.
 
 Para descargar el proyecto, es necesario descargar el repositorio al directorio que prefiera mas en su computadora. En terminal, descarga el repositorio
 ```bash
-$ git clone git@github.com:ProyectoIntegrador2018/cartelera_backend.git
+$ git clone git@github.com:ProyectoIntegrador2018/cartelera_public_frontend.git
 ```
 
 Despues de haberlo descargado, asegurese de entrar al directorio.
 ```bash
-$ cd cartelera_backend
+$ cd cartelera_public_frontend
 ```
 
 Ya dentro del directorio, se instalan todas las dependencias necesarias para el proyecto con
 ```bash
-$ bundle install
+$ npm install
 ```
 
 El proceso toma un tiempo, hay que ser pacientes.
@@ -41,9 +39,9 @@ Para poder conectar nuestro proyecto con Heroku, es necesario descargar [Heroku 
 $ heroku login
 ```
 
-Despues de habernos loggeado, tendremos que instalar las dependencias nuevamente, por si se hicieron nuevos cambios a las gemas utilizadas
+Despues de habernos loggeado, tendremos que instalar las dependencias nuevamente, por si se hicieron nuevos cambios al package.json
 ```bash
-$ bundle install
+$ npm install
 ```
 
 Ya teniendo configurado Heroku, podemos proceder a crear nuestro sitio web.
