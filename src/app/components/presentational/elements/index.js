@@ -1,4 +1,6 @@
 export { default as Button } from './Button'
+export { default as TagSection } from './TagSection'
+export { default as SearchBar } from './SearchBar'
 export { default as Dropdown } from './Dropdown'
 export { default as Hashtags } from './Hashtags'
 export { default as Header } from './Header'
