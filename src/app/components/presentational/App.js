@@ -4,6 +4,8 @@ import { Header } from 'Presentational/elements'
 import { UpcomingEvents, AllEvents } from 'Presentational/events'
 import ShowEvent from 'Containers/events/Show'
 import 'Style/main.scss'
+import 'Style/events/tags/tags.scss'
+import 'Style/events/tags/search.scss'
 
 const App = () => (
     <div className='container'>
