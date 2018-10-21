@@ -19,26 +19,16 @@ class List extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        this.setState({events: newProps.event.all});
-        this.setState({eventsAll: newProps.event.all});
+        this.setState({
+            events: newProps.event.all,
+            eventsAll: newProps.event.all
+        });
     }
 
     componentWillMount() {
         if (isEmpty(this.props.event.all)) {
             this.props.loadEvents();
         }
-    }
-
-    // This function is temporal, remove after tests
-    addTagToEvent(eventsList) {
-        let curr_events = eventsList;
-        let tags = ['code', 'hack', 'business'];
-        for (let i = 0; i < curr_events.length; i++) {
-            let tag_i = Math.floor(Math.random() * 3);
-            curr_events[i].tagNames.push(tags[tag_i]);
-        }
-        
-        return curr_events;
     }
 
     searchQuery(query) {
@@ -48,7 +38,6 @@ class List extends React.Component {
             let term_query = query.substring(5, query.length);
             this.filterByTerm(term_query);
         } else if (query.startsWith("tags:")) {
-            this.setState({events: this.addTagToEvent(this.state.events)});
             let tags_query = query.substring(5, query.length);
             this.filterByTags(tags_query);
         }
@@ -79,17 +68,10 @@ class List extends React.Component {
         let filtered_events = [];
 
         for (let i = 0; i < evn_len; i++) {
-            let add_event = true;
-            let curr_tags = curr_events[i].tagNames;
+            let curr_category = curr_events[i].category;
 
-            for (let i = 0; i < tags_query.length; i++) {
-                if (curr_tags.indexOf(tags_query[i]) == -1) {
-                    add_event = false;
-                }
-            }
-
-            if (add_event) {
-                filtered_events.push(curr_events[i]);
+            if (tags_query.indexOf(curr_category) != -1){
+                filtered_events.push(curr_events[i])
             }
         }
 
@@ -99,7 +81,7 @@ class List extends React.Component {
     render() {
         return (
             <div>
-                <Filters tagsList={this.tagsList} searchQuery={this.searchQuery} />
+                <Filters eventsAll={this.state.eventsAll} searchQuery={this.searchQuery} />
                 <div className={'event-container ' + (this.props.upcoming ? "upcoming" : "all")}>
                     <EventList
                         events={this.state.events}
