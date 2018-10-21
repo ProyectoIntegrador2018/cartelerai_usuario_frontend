@@ -1,5 +1,6 @@
 import React from 'react'
 import { TagSection, SearchBar } from 'Presentational/elements'
+import { runInThisContext } from 'vm';
 
 class Filters extends React.Component {
     constructor(props) {
@@ -7,11 +8,27 @@ class Filters extends React.Component {
         this.state = {
             selectedTags: [],
             searchSentence: '',
+            tagsList: [],
         }
         this.selectTag = this.selectTag.bind(this);
         this.removeTag = this.removeTag.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.search = this.search.bind(this);
+    }
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.eventsAll) {
+            let events = newProps.eventsAll;
+            let tags = []
+
+            for (let i = 0; i < events.length; i++) {
+                tags.push(events[i].category)
+            }
+
+            this.setState({
+                tagsList: tags
+            })
+        }
     }
 
     search() {
@@ -34,7 +51,6 @@ class Filters extends React.Component {
 
 
         this.props.searchQuery(searchQuery);
-
     }
 
     updateSearch(event) {
@@ -65,7 +81,7 @@ class Filters extends React.Component {
                     updateSearch = {this.updateSearch}
                     search = {this.search} />
                 <TagSection
-                    tagsList = {this.props.tagsList}
+                    tagsList = {this.state.tagsList}
                     selectTag = {this.selectTag} />
             </div>
         )
