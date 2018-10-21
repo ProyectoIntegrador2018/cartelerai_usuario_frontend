@@ -22,7 +22,9 @@ class Filters extends React.Component {
             let tags = []
 
             for (let i = 0; i < events.length; i++) {
-                tags.push(events[i].category)
+                if (tags.indexOf(events[i].category) == -1){
+                    tags.push(events[i].category)
+                }
             }
 
             this.setState({
