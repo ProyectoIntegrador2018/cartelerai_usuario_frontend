@@ -1,5 +1,6 @@
-import React from 'react'
-import { TagSection, SearchBar } from 'Presentational/elements'
+import React, {Component} from 'react';
+import { TagSection, SearchBar, DropDownCategoryFilter } from 'Presentational/elements';
+//import {DropDownCategoryFilter} from './presentational/elements/DropDownCategoryFilter.js';
 import { runInThisContext } from 'vm';
 
 class Filters extends React.Component {
@@ -85,6 +86,7 @@ class Filters extends React.Component {
                 <TagSection
                     tagsList = {this.state.tagsList}
                     selectTag = {this.selectTag} />
+                <DropDownCategoryFilter/>             
             </div>
         )
     }
