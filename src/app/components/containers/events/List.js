@@ -5,6 +5,7 @@ import EventList from 'Presentational/events/List'
 import Filters from 'Containers/events/Filters'
 import { EventActions, Status } from 'Config/constants'
 import { isEmpty } from 'Config/helper'
+import _ from 'lodash';
 var Spinner = require('react-spinkit');
 
 class List extends React.Component {
@@ -16,6 +17,9 @@ class List extends React.Component {
         }
         this.tagsList = ['code', 'hack', 'business'];
         this.searchQuery = this.searchQuery.bind(this);
+        this.selectCampus = this.selectCampus.bind(this);
+        this.selectCost = this.selectCost.bind(this);
+        this.selectCategory = this.selectCategory.bind(this);
     }
 
     componentWillReceiveProps(newProps) {
@@ -77,6 +81,14 @@ class List extends React.Component {
 
         this.setState({events: filtered_events});
     }
+
+    filterByCategories(){
+        let selectedEvent =[];
+        selectedEvent = _.filter(eventsAll, ['campus',selectCampus],['cost',selectCost,['category',selectCategory]);
+       this.setState({events: selectedEvent}) 
+
+    }
+
 
     render() {
         return (
