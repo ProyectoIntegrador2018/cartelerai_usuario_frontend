@@ -1,5 +1,5 @@
 import React from 'react'
-import { TagSection, SearchBar } from 'Presentational/elements'
+import { TagSection, SearchBar} from 'Presentational/elements'
 import { runInThisContext } from 'vm';
 
 class Filters extends React.Component {
@@ -9,15 +9,15 @@ class Filters extends React.Component {
             selectedTags: [],
             searchSentence: '',
             tagsList: [],
-            campusList[],
-            costList[],
-            categoryList[],
-            selectedEvents[],
+           // costList[],
+           // campus: [],
+            //categoryList[],
+            //selectedEvents[],
         }
         this.selectTag = this.selectTag.bind(this);
-        this.selectCampus = this.selectcampus.bind(this);
-        this.selectCost = this.selectCost.bind(this);
-        this.selectCategory = this.selectCategory.bind(this);
+        //his.selectCampus = this.selectcampus.bind(this);
+       // this.selectCost = this.selectCost.bind(this);
+        //this.selectCategory = this.selectCategory.bind(this);
         this.removeTag = this.removeTag.bind(this);
         this.updateSearch = this.updateSearch.bind(this);
         this.search = this.search.bind(this);
@@ -27,9 +27,9 @@ class Filters extends React.Component {
         if (newProps.eventsAll) {
             let events = newProps.eventsAll;
             let tags = []
-            let campusO =[]
-            let costO =[]
-            let categoryO =[]
+           // let campusO =[]
+           // let costO =[]
+            //let categoryO =[]
 
             for (let i = 0; i < events.length; i++) {
                 if (tags.indexOf(events[i].category) == -1){
@@ -37,13 +37,13 @@ class Filters extends React.Component {
                 }
             }
 
-            for (let i = 0; i < events.length; i++) {
+           /* for (let i = 0; i < events.length; i++) {
                 if (campusO.indexOf(events[i].campus) == -1){
                     campusO.push(events[i].campus)
                 }
             }
 
-            for (let i = 0; i < events.length; i++) {
+          /*  for (let i = 0; i < events.length; i++) {
                 if (costO.indexOf(events[i].cost) == -1){
                     costO.push(events[i].cost)
                 }
@@ -53,13 +53,13 @@ class Filters extends React.Component {
                 if (categoryO.indexOf(events[i].category) == -1){
                     categoryO.push(events[i].category)
                 }
-            }
+            }*/
 
             this.setState({
                 tagsList: tags,
-                campusList: campusO,
-                costList: costO,
-                categoryList: categoryO
+                //campus: campusO
+                //costList: costO,
+               // categoryList: categoryO
             })
         }
     }
@@ -104,14 +104,14 @@ class Filters extends React.Component {
         this.setState({ selectedTags: selectedTags });
     }
 
-    selectEvent_campus(){
+    /*selectEvent_campus(){
         this.setState({selectCampus: event.target.value});// re escribir el valo de campus id, capturando el valor del filtro
          //console.log(this.refs.eventSelector_campus.value)
          this.props.selectedCampus(selectCampus);
 
-    }
+    }*/
  //============================================Cost====================
-    selectEvent_cost(){
+    /*selectEvent_cost(){
         this.setState({selectCost: event.target.value});
         // console.log(this.refs.eventSelector_cost.value)
         this.props.selectCost(selectCost);
@@ -123,28 +123,23 @@ class Filters extends React.Component {
         this.setState({selectCategory: event.target.value});
          //console.log(this.refs.eventSelector_category.value)
          this.props.selectCategory(selectCategory)
-    }
+    }*/
 
 
     render() {
         return (
             <div>
-                <SearchBar
-                    searchSentence = {this.state.searchSentence}
-                    selectedTags = {this.state.selectedTags}
-                    removeTag = {this.removeTag}
-                    updateSearch = {this.updateSearch}
-                    search = {this.search} />
-                <TagSection
-                    tagsList = {this.state.tagsList}
-                    selectTag = {this.selectTag} />
-                <Dropdownfilters 
-                    campusList = {this.state.campusList}
-                    costList = {this.state.costList}
-                    categoryList ={this.state.categoryList}
-                    selectEvent_campus = {this.state.selectEvent_campus}
-                    selectEvent_cost ={this.state.selectEvent_cost}
-                    selectEvent_category ={this.state.selectEvent_category} />
+                    <SearchBar
+                        searchSentence = {this.state.searchSentence}
+                        selectedTags = {this.state.selectedTags}
+                        removeTag = {this.removeTag}
+                        updateSearch = {this.updateSearch}
+                        search = {this.search} /> 
+                    //<Dropdown data={campusO} />
+                    <TagSection
+                        tagsList = {this.state.tagsList}
+                        selectTag = {this.selectTag} />
+
             </div>
         )
     }
