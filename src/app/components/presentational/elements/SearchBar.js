@@ -4,7 +4,7 @@ const SearchBar = ({ searchSentence,
                      selectedTags,
                      removeTag,
                      updateSearch,
-                     search }) => {
+                     search,campus }) => {
         return (
             <div className="searchContainer">
                 <div className="searchAreaContainer">
@@ -17,6 +17,7 @@ const SearchBar = ({ searchSentence,
                 <div className="searchButtonContainer">
                     <SearchButton search={search}/>
                 </div>
+
             </div>
         );
 }

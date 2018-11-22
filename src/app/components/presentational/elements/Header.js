@@ -9,7 +9,7 @@ const Header = () => (
         <div className='logo'>
             <Link to={'/'}>
                 <img src={logo} />
-            </Link>
+                <img src='//home/julio/Desktop/Integrador/CarteleraI/cartelera_public_frontend/src/public/src/app/images' />            </Link>
         </div>
         <div className='campus'>
             <span className='label'>Campus</span>
