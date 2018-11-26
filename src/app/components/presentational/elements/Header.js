@@ -12,10 +12,9 @@ const Header = () => (
             </Link>
         </div>
         <div className='campus'>
-            <span className='label'>Campus</span>
-            <span>
-                <Dropdown data={campus} />
-            </span>
+            <Link to={'/acerca'}>
+                Acerca de
+            </Link>
         </div>
     </div>
 )
