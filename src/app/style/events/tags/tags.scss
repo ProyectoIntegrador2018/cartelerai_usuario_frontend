@@ -5,12 +5,13 @@
     width: 97%;
     margin-top: 25px;
     margin-bottom: 25px;
-    padding: 15px 15px 15px 15px;
+    padding: 0px 0px 0px 0px;
     border-radius: 10px;
 }
 
 button {
-    margin-right: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
     cursor: pointer;
     background: $light-blue;
     border: none;
@@ -21,8 +22,8 @@ button {
     position: relative;
     letter-spacing: 0.1em;
     font-weight: 400;
-    padding: 1rem 2rem;
-    font-size: 1em;
+    padding: 0.5rem 1rem;
+    font-size: 0.85em;
     a {
         text-decoration: none;
     }

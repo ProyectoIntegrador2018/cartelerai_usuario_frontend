@@ -26,21 +26,51 @@ class List extends React.Component {
     }
 
     componentWillMount() {
-        if (isEmpty(this.props.event.all)) {
-            this.props.loadEvents();
-        }
+        this.props.loadEvents();
     }
 
     searchQuery(query) {
         if (query.length == 0) {
-            this.setState({events: this.state.eventsAll});
+            this.cleanQuery();
         } else if (query.startsWith("term:")) {
             let term_query = query.substring(5, query.length);
             this.filterByTerm(term_query);
         } else if (query.startsWith("tags:")) {
             let tags_query = query.substring(5, query.length);
             this.filterByTags(tags_query);
+        } else if (query.startsWith("category:")) {
+            let category_query = query.substring(9, query.length);
+            this.filterByCategory(category_query);
         }
+    }
+
+    cleanQuery() {
+        let curr_events = this.state.eventsAll;
+        let evn_len = curr_events.length;
+        let filtered_events = [];
+
+        for (let i = 0; i < evn_len; i++) {
+            console.log("here")
+            let curr_event = curr_events[i];
+            filtered_events.push(curr_event);
+        }
+
+        this.setState({events: filtered_events});
+    }
+
+    filterByCategory(query) {
+        let curr_events = this.state.eventsAll;
+        let evn_len = curr_events.length;
+        let filtered_events = [];
+
+        for (let i = 0; i < evn_len; i++) {
+            let curr_event = curr_events[i];
+            if (curr_event.category == query) {
+                filtered_events.push(curr_event);
+            }
+        }
+
+        this.setState({events: filtered_events});
     }
 
     filterByTerm(query) {
@@ -68,9 +98,17 @@ class List extends React.Component {
         let filtered_events = [];
 
         for (let i = 0; i < evn_len; i++) {
-            let curr_category = curr_events[i].category;
+            let curr_tags= curr_events[i].tagNames;
+            let addEvent = true;
 
-            if (tags_query.indexOf(curr_category) != -1){
+            for (let j = 0; j < tags_query.length; j++) {
+                if (curr_tags.indexOf(tags_query[j]) == -1){
+                    addEvent = false;
+                    break;
+                }
+            }
+            
+            if (addEvent) {
                 filtered_events.push(curr_events[i])
             }
         }
