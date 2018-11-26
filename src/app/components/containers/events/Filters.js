@@ -1,5 +1,5 @@
 import React from 'react'
-import { TagSection, SearchBar, CategorySection } from 'Presentational/elements'
+import { TagSection, SearchBar } from 'Presentational/elements'
 import { runInThisContext } from 'vm';
 
 class Filters extends React.Component {
@@ -9,7 +9,6 @@ class Filters extends React.Component {
             selectedTags: [],
             searchSentence: '',
             tagsList: [],
-            categoriesList: [],
         }
         this.selectTag = this.selectTag.bind(this);
         this.removeTag = this.removeTag.bind(this);
@@ -20,29 +19,21 @@ class Filters extends React.Component {
     componentWillReceiveProps(newProps) {
         if (newProps.eventsAll) {
             let events = newProps.eventsAll;
-            let tags = [];
-            let categories = ['Todas'];
+            let tags = []
 
             for (let i = 0; i < events.length; i++) {
-                if (categories.indexOf(events[i].category) == -1){
-                    categories.push(events[i].category)
-                }
-
-                for (let j = 0; j < events[i].tagNames.length; j++) {
-                    if (tags.indexOf(events[i].tagNames[j]) == -1){
-                        tags.push(events[i].tagNames[j])
-                    }
+                if (tags.indexOf(events[i].category) == -1){
+                    tags.push(events[i].category)
                 }
             }
 
             this.setState({
-                tagsList: tags,
-                categoriesList: categories,
+                tagsList: tags
             })
         }
     }
 
-    search(category) {
+    search() {
         let selectedTags = this.state.selectedTags;
         let searchSentence = this.state.searchSentence;
         let searchQuery = '';
@@ -52,16 +43,14 @@ class Filters extends React.Component {
             let i = 0
             for (i; i < selectedTags.length; i++) {
                 searchQuery += selectedTags[i];
-                searchQuery += '#';
+                searchQuery += '#'
             }
             searchQuery = searchQuery.substring(0, searchQuery.length - 1);
         } else if (searchSentence.length > 0) {
             searchQuery += 'term:';
-            searchQuery += searchSentence;
-        } else if (category && category != "Todas") {
-            searchQuery += 'category:';
-            searchQuery += category;
+            searchQuery += searchSentence
         }
+
 
         this.props.searchQuery(searchQuery);
     }
@@ -93,11 +82,6 @@ class Filters extends React.Component {
                     removeTag = {this.removeTag}
                     updateSearch = {this.updateSearch}
                     search = {this.search} />
-                <h4>Categorias:</h4>
-                <CategorySection
-                    categoriesList = {this.state.categoriesList}
-                    selectCategory = {this.search} />
-                <h4>Tags:</h4>
                 <TagSection
                     tagsList = {this.state.tagsList}
                     selectTag = {this.selectTag} />
