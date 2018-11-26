@@ -151,4 +151,4 @@ export const randomInt = (from, to) => {
 
 export const pageTitle = 'Cartelera de Innovación y Emprendimiento'
 
-export const pageDomain = 'http://beta-cartelera-public.surge.sh'
+export const pageDomain = 'http://www.cartelerai.com'
