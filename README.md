@@ -1,5 +1,7 @@
 # Cartelera i - Public Frontend
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/4b2a62472fc9755fdf75/maintainability)](https://codeclimate.com/github/ProyectoIntegrador2018/cartelera_public_frontend/maintainability)
+
 Este es el repositorio de "Cartelera de Innovación - Public" para el Tec de Monterrey,
 un proyecto que listará eventos próximos a suceder dentro del Tec. Esta parte del 
 proyecto actuará como interfaz pública para los usuarios.
